@@ -1,0 +1,26 @@
+@import '../styles/global.scss';
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: map-get($colors, 'accent');
+  padding: map-get($spacing-unit, 'medium');
+
+  .header__title {
+    font-size: 32px;
+  }
+
+  .header__links {
+    min-height: 24px;
+    padding: map-get($spacing-unit, 'medium');
+
+    .links__link {
+      margin: map-get($spacing-unit, 'large');
+      text-decoration: none;
+      color: map-get($colors, 'spice');
+    }
+  }
+}

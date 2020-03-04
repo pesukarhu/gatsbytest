@@ -1,0 +1,8 @@
+@import '../styles/global.scss';
+
+.articlelist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: map-get($spacing-unit, 'huge');
+}

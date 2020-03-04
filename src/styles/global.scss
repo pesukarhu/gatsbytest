@@ -1,0 +1,38 @@
+$container-width: 100%;
+
+$main-font: 'Arial';
+
+$spacing-unit: (
+  'small': 4px,
+  'medium': 8px,
+  'large': 12px,
+  'huge': 16px,
+);
+
+$colors: (
+  'background': #d7fffd,
+  'accent': #a1e6e3,
+  'title': #eca0b6,
+  'spice': #fafba4,
+);
+p,
+a,
+h1,
+h2,
+h3 {
+  font-family: $main-font;
+}
+
+a {
+  text-decoration: none;
+
+  &:visited {
+    color: initial;
+  }
+}
+
+h1,
+h2,
+h3 {
+  color: map-get($colors, 'title');
+}

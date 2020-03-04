@@ -1,0 +1,11 @@
+@import '../styles/global.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: map-get($colors, 'background');
+}
+
+.container {
+  width: $container-width;
+}
