@@ -7,27 +7,21 @@ export default () => (
   <StaticQuery
     query={graphql`
       query {
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-          totalCount
+        allContentfulArticle {
           edges {
             node {
-              fields {
-                slug
-              }
-              id
-              frontmatter {
-                title
-                image {
-                  childImageSharp {
-                    fluid(maxWidth: 600) {
-                      ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                    }
-                  }
+              slug
+              title
+              body {
+                childContentfulRichText {
+                  html
                 }
-                date
-                keywords
               }
-              excerpt
+              image {
+                fluid {
+                  ...GatsbyContentfulFluid
+                }
+              }
             }
           }
         }
@@ -35,14 +29,13 @@ export default () => (
     `}
     render={data => (
       <div className={styles.articlelist}>
-        {data.allMarkdownRemark.edges.map(({ node }) => (
+        {data.allContentfulArticle.edges.map(({ node }) => (
           <Article
-            to={node.fields.slug}
+            to={node.slug}
             id={node.id}
-            title={node.frontmatter.title}
-            excerpt={node.excerpt}
-            keywords={node.frontmatter.keywords}
-            image={node.frontmatter.image.childImageSharp.fluid}
+            title={node.title}
+            excerpt={node.body.childContentfulRichText.html}
+            image={node.image.fluid}
           />
         ))}
       </div>

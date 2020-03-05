@@ -20,9 +20,10 @@ export default props => {
         <div className={styles.title}>
           <h3>{props.title}</h3>
         </div>
-        <div className={styles.excerpt}>
-          <p>{props.excerpt}</p>
-        </div>
+        <div
+          className={styles.excerpt}
+          dangerouslySetInnerHTML={{ __html: props.excerpt }}
+        />
       </article>
     </Link>
   );
