@@ -9,13 +9,6 @@ module.exports = {
   plugins: [
     'gatsby-plugin-sass',
     {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'files',
-        path: `${__dirname}/src/markdown`,
-      },
-    },
-    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
@@ -33,5 +26,19 @@ module.exports = {
     'gatsby-transformer-remark',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Oxanium`,
+          },
+          {
+            family: `Roboto`,
+            subsets: [`latin`],
+          },
+        ],
+      },
+    },
   ],
 };

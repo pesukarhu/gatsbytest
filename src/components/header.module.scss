@@ -14,13 +14,34 @@
   }
 
   .header__links {
+    display: flex;
     min-height: 24px;
     padding: map-get($spacing-unit, 'medium');
 
     .links__link {
+      position: relative;
       margin: map-get($spacing-unit, 'large');
       text-decoration: none;
       color: map-get($colors, 'spice');
+      padding-right: 12px;
+      overflow: hidden;
+      white-space: nowrap;
+      margin: 0 auto;
+      letter-spacing: 0.15em;
     }
+    .underline {
+      position: absolute;
+      right: 0;
+      animation: blink-caret 0.75s step-end infinite;
+    }
+  }
+}
+@keyframes blink-caret {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: map-get($colors, 'spice');
   }
 }
